@@ -221,9 +221,11 @@
        "This flag overrides -v (forces test validation *not* to happen).")
       #:record]))
 
-  (printf "starting oracle on ~a\n" (date->string (seconds->date (current-seconds)) #t))
-
   (define assign-number (cons major minor))
+
+  (printf "starting oracle on ~a for assign ~a\n"
+          (date->string (seconds->date (current-seconds)) #t)
+          assign-number)
   (unless (or (member assign-number assign-sequence)
               (equal? team-name "f19-dummy-team"))
     (raise-user-error 'software-construction-admin
